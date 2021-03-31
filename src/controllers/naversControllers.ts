@@ -2,9 +2,10 @@ import { Request, Response } from "express";
 
 class NaversController {
   async index(req: Request, res: Response) {
-    return res.json({ ok: "ok" })
+    const { id } = req
 
-    return
+
+    return res.json({ ok: id })
   }
 }
 export default new NaversController()

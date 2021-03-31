@@ -9,19 +9,15 @@ export default async function (req: Request, res: Response, next: any) {
   if (!authHeader) {
     return res.status(401).json({ error: "Token is not provided" })
   }
-  const [, token] = authHeader.split(" ")
 
   try {
-    jwt.verify(token, authConfig.secret, (err, decoded) => {
-      console.log(decoded)
-      return next()
-    })
+    const [, token] = authHeader.split(" ")
+    const validated = await jwt.verify(token, authConfig.secret)
+    req.userid = validated.id
 
     return next()
 
   } catch (err) {
     return res.status(401).json({ error: "invalid token" })
   }
-
-  return next()
 }

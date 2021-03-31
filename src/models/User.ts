@@ -10,8 +10,6 @@ export default class User {
   email!: string;
   @Column()
   password!: string;
-  @Column()
-  id_navers!: string
 
   @BeforeInsert()
   generateHash() {

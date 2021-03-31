@@ -34,7 +34,7 @@ export class createNaver1616797172959 implements MigrationInterface {
                         isNullable: true
                     },
                     {
-                        name: "Projects",
+                        name: "projects",
                         type: "varchar",
                         isArray: true,
                         isNullable: true

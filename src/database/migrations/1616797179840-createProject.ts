@@ -21,6 +21,10 @@ export class createProject1616797179840 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
+                        name: "id_user",
+                        type: "varchar"
+                    },
+                    {
                         name: "created_at",
                         type: "timestamps",
                         default: "Date('now')"

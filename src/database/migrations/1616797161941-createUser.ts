@@ -21,12 +21,6 @@ export class createUser1616797161941 implements MigrationInterface {
                         type: "varchar"
                     },
                     {
-                        name: "id_navers",
-                        type: "varchar",
-                        isArray: true,
-                        isNullable: true
-                    },
-                    {
                         name: "created_at",
                         type: "timestamps",
                         default: "Date('now')"

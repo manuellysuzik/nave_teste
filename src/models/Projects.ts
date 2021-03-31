@@ -7,5 +7,7 @@ export default class Projects {
   @Column()
   name!: string;
   @Column()
-  id_navers!: string
+  id_navers!: string;
+  @Column()
+  id_user!: string;
 }

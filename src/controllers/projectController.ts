@@ -8,10 +8,28 @@ class ProjectsController {
   async index(req: Request, res: Response) {
     const { userid } = req
 
+    const projectRepository = getCustomRepository(ProjectsRepository)
+
+    const projects = await projectRepository.find({ id_user: userid })
+
+    const sortByName = projects.sort((obj1, obj2) => {
+      return obj1.name < obj2.name ? -1 :
+        (obj1.name > obj2.name ? 1 : 0);
+    });
+
+    return res.json({ projects: sortByName })
 
   }
   async show(req: Request, res: Response) {
+    const { userid } = req
+    const { id_projects } = req.params
 
+    const projectRepository = getCustomRepository(ProjectsRepository)
+    const naverRepository = getCustomRepository(NaversRepository)
+
+    const project = await projectRepository.findOne({ id: id_projects })
+
+    return res.json({ project: project })
   }
   async store(req: Request, res: Response) {
     const { userid } = req
@@ -21,13 +39,6 @@ class ProjectsController {
     const projectRepository = getCustomRepository(ProjectsRepository)
     const naverRepository = getCustomRepository(NaversRepository)
 
-    const naverExists = await naverRepository.find({ id_user: userid })
-
-    console.log(naverExists)
-
-    if (naverExists) {
-      return res.status(404).json({ error: "Não é possível criar o projeto pois o Naver não existe" })
-    }
     const createProject = projectRepository.create({ name, id_navers: navers, id_user: userid })
 
     try {

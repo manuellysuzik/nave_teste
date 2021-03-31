@@ -15,6 +15,8 @@ routes.get("/navers", NaversController.index)
 routes.post("/navers", NaversController.store)
 routes.get("/navers/:id_naver", NaversController.show)
 routes.post("/projects", ProjectController.store)
+routes.get("/projects", ProjectController.index)
+routes.get("/projects/:id_projects", ProjectController.show)
 routes.post("/signout", SessionController.exit)
 
 export default routes

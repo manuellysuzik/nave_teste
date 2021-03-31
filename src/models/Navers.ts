@@ -15,9 +15,6 @@ export default class Navers {
   admission_date!: Date;
   @Column()
   job_role!: string;
-  @ManyToOne(() => User, user => user.id_navers)
-  id_user!: User;
-  @OneToMany(() => Projects, projects => projects.id_navers)
-  projects!: Projects[];
-
+  @Column()
+  id_user!: string;
 }

@@ -1,7 +1,7 @@
+import 'dotenv'
 import { Request, Response } from "express";
 import UserRepository from '../database/repositories/userRepository'
 import { getCustomRepository } from "typeorm";
-import authConfig from "../config/authConfig";
 import jwt from 'jsonwebtoken'
 import bcrypt from 'bcrypt'
 
@@ -27,13 +27,8 @@ class SessionController {
 
     // CRIAÇÃO DO JWT
     const id_user = verifyUser.id
-    const secret = bcrypt.hashSync(id_user, 6)
 
-    Object.assign(authConfig, {
-      secret: secret
-    })
-
-    const token = jwt.sign({ id: id_user }, secret, { expiresIn: '7d' })
+    const token = jwt.sign({ id: id_user }, process.env.SECRET_TOKEN, { expiresIn: '7d' })
 
     return res.json({ auth: true, token: token })
 

@@ -10,8 +10,8 @@ export default class User {
   email!: string;
   @Column()
   password!: string;
-  @OneToMany(() => Navers, navers => navers.id_user)
-  id_navers!: Navers[];
+  @OneToMany(type => Navers, id_user => User)
+  id_navers!: Navers[]
 
   @BeforeInsert()
   generateHash() {

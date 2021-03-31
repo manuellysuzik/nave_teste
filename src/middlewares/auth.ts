@@ -12,7 +12,7 @@ export default async function (req: Request, res: Response, next: any) {
 
   try {
     const [, token] = authHeader.split(" ")
-    const validated = await jwt.verify(token, authConfig.secret)
+    const validated = await jwt.verify(token, process.env.SECRET_TOKEN)
     req.userid = validated.id
 
     return next()

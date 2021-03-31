@@ -11,5 +11,6 @@ routes.post("/signin", UserController.create)
 routes.post("/login", SessionController.create)
 routes.use(auth)
 routes.get("/navers", NaversController.index)
+routes.post("/navers", NaversController.store)
 
 export default routes

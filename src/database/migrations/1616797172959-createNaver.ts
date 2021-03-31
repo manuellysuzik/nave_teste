@@ -13,10 +13,6 @@ export class createNaver1616797172959 implements MigrationInterface {
                         isPrimary: true
                     },
                     {
-                        name: "id_user",
-                        type: "varchar"
-                    },
-                    {
                         name: "name",
                         type: "varchar"
                     },
@@ -31,6 +27,11 @@ export class createNaver1616797172959 implements MigrationInterface {
                     {
                         name: "job_role",
                         type: "varchar"
+                    },
+                    {
+                        name: "id_user",
+                        type: "varchar",
+                        isNullable: true
                     },
                     {
                         name: "Projects",

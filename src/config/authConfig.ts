@@ -1,3 +1,4 @@
+import 'dotenv'
 export default {
-  secret: ""
+  secret: process.env.SECRET_TOKEN
 }

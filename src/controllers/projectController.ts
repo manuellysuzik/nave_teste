@@ -27,6 +27,8 @@ class ProjectsController {
     const projectRepository = getCustomRepository(ProjectsRepository)
     const naverRepository = getCustomRepository(NaversRepository)
 
+
+
     const project = await projectRepository.findOne({ id: id_projects })
 
     return res.json({ project: project })

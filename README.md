@@ -34,14 +34,14 @@ A proposta é entregar uma API de criação de Navers e projetos.
 * bcrypt
 * jsonwebtoken
 
-### ! Esse projeto foi testado no insominia !
+### ! Esse projeto foi testado no insonminia !
 
 ### Para rodar o projeto
 
 1. Rodar as migrations para construção das tabelas do banco de dados de
    <code> yarn typeorm migration:run </code>
 2. <code> $ npm run dev</code> ou <code> $ yarn dev</code>
-1. vá até o seu navegador, ou use pelo insominia / postman o endereço:
+1. vá até o seu navegador, ou use pelo insonminia / postman o endereço:
    <code> http://localhost:3333/ </code>
 
 
